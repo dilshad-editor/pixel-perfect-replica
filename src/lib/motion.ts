@@ -7,7 +7,6 @@ export function ensureGsap() {
   if (!registered && typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
     registered = true;
-    if (import.meta.env.DEV) (window as unknown as { __ST: unknown }).__ST = ScrollTrigger;
   }
   return { gsap, ScrollTrigger };
 }
