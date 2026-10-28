@@ -27,8 +27,9 @@ export function SplitReveal({ text, as = "h2", className, immediate, delay = 0, 
       gsap.set(targets, { yPercent: 0, opacity: 1 });
       return;
     }
-    gsap.set(targets, { yPercent: 110, rotate: chars ? 0 : 4, opacity: 1 });
+    gsap.set(targets, { y: 0, yPercent: 110, rotate: chars ? 0 : 4, opacity: 1 });
     gsap.to(targets, {
+      y: 0,
       yPercent: 0,
       rotate: 0,
       duration: mobile ? 0.9 : 1.2,
