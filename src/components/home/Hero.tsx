@@ -122,7 +122,7 @@ export function Hero() {
           <div data-depth="40" className="absolute -inset-10 bg-hero-glow" />
           <div data-depth="-18" className="absolute inset-0 flex flex-col justify-center gap-[9vh] opacity-40">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-px w-full bg-border" style={{ marginLeft: `${(i % 3) * 8}%` }} />
+              <div key={i} className="h-px bg-border" style={{ marginLeft: `${(i % 3) * 8}%`, width: `${100 - (i % 3) * 8}%` }} />
             ))}
           </div>
           <div
