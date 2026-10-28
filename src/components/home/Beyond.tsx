@@ -28,11 +28,17 @@ export function Beyond() {
   );
 }
 
-function Header() {
+function Header({ split = true }: { split?: boolean }) {
   return (
     <>
       <p className="eyebrow mb-8">(03) — Craft</p>
-      <SplitReveal id="beyond-title" as="h2" text="Beyond basic editing." accent={["editing"]} className="display-lg uppercase" />
+      {split ? (
+        <SplitReveal id="beyond-title" as="h2" text="Beyond basic editing." accent={["editing"]} className="display-lg uppercase" />
+      ) : (
+        <h2 id="beyond-title" data-beyond-title className="display-lg uppercase">
+          Beyond basic <span className="text-primary">editing.</span>
+        </h2>
+      )}
       <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">{INTRO}</p>
     </>
   );
@@ -45,6 +51,17 @@ function PinnedDisciplines() {
 
   useGsap(root, ({ gsap, ScrollTrigger }) => {
     const n = disciplines.length;
+    // clip-path (not transforms) — transforms inside the pinned element get re-parsed on refresh
+    gsap.fromTo(
+      "[data-beyond-title]",
+      { clipPath: "inset(0% 0% 100% 0%)" },
+      {
+        clipPath: "inset(0% 0% 0% 0%)",
+        duration: 1.3,
+        ease: "expo.out",
+        scrollTrigger: { trigger: root.current, start: "top 70%", once: true },
+      },
+    );
     ScrollTrigger.create({
       trigger: root.current,
       start: "top top",
@@ -78,7 +95,7 @@ function PinnedDisciplines() {
     <div ref={root} className="relative flex h-screen items-center overflow-hidden">
       <div className="container-cinema grid grid-cols-12 gap-10">
         <div className="col-span-5 flex flex-col justify-center">
-          <Header />
+          <Header split={false} />
           <ol className="mt-12 space-y-3">
             {disciplines.map((d, i) => (
               <li
