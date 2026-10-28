@@ -53,7 +53,7 @@ export function ProjectPoster({ project, className, priority }: { project: Proje
           <div aria-hidden className="select-none font-display text-[clamp(5rem,16vw,14rem)] font-extrabold leading-none tracking-tighter text-outline">
             {project.number}
           </div>
-          <div className="viewfinder inset-4" />
+          <div className="viewfinder inset-2" />
         </div>
       )}
     </div>
