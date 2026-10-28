@@ -175,7 +175,7 @@ function StackedDisciplines() {
               <div className="flex items-baseline gap-5">
                 <span className="font-mono text-xs text-primary">{d.number}</span>
                 <div>
-                  <h3 className="font-display text-3xl font-extrabold uppercase leading-none tracking-tight sm:text-5xl">
+                  <h3 className="font-display text-[1.6rem] font-extrabold uppercase leading-none tracking-tight sm:text-5xl">
                     {d.title}
                   </h3>
                   <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">{d.text}</p>

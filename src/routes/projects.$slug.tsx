@@ -211,7 +211,7 @@ function ProjectPage() {
         >
           <div className="md:col-span-7">
             <span className="font-mono text-sm text-primary">{next.number}</span>
-            <p className="mt-3 font-display text-5xl font-extrabold uppercase leading-none tracking-tight transition-transform duration-700 group-hover:translate-x-3 sm:text-7xl">
+            <p className="mt-3 font-display text-[clamp(1.6rem,5.6vw,4.5rem)] font-extrabold uppercase leading-none tracking-tight transition-transform duration-700 group-hover:translate-x-3">
               {next.title}
             </p>
             <p className="mt-3 eyebrow">
