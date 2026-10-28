@@ -8,7 +8,14 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import { motion } from "motion/react";
+import { useLocation } from "@tanstack/react-router";
+
+import { CustomCursor } from "../components/site/CustomCursor";
+import { Footer } from "../components/site/Footer";
+import { Navbar } from "../components/site/Navbar";
+import { SmoothScrollProvider } from "../components/site/SmoothScroll";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -78,16 +85,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dilshad Khan — Professional Video Editor" },
+      { name: "description", content: "Cinematic video editing portfolio of Dilshad Khan." },
+      { name: "author", content: "Dilshad Khan" },
+      { name: "theme-color", content: "#080808" },
+      { property: "og:title", content: "Dilshad Khan — Professional Video Editor" },
+      { property: "og:description", content: "Cinematic video editing portfolio of Dilshad Khan." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Syne:wght@600;700;800&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -103,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
@@ -117,11 +130,36 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const { pathname } = useLocation();
+  // Fade between pages, but never hide the first server-rendered page.
+  const firstPath = useRef(pathname);
+  const animateIn = pathname !== firstPath.current;
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SmoothScrollProvider>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-primary-foreground"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        <motion.main
+          id="main"
+          className="overflow-x-clip"
+          key={pathname}
+          initial={animateIn ? { opacity: 0 } : false}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </motion.main>
+        <Footer />
+        <div aria-hidden className="film-grain" />
+        <CustomCursor />
+      </SmoothScrollProvider>
     </QueryClientProvider>
   );
 }
