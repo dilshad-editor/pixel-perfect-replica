@@ -60,12 +60,15 @@ function PinnedDisciplines() {
         gsap.set("[data-beyond-progress]", { scaleY: self.progress });
       },
     });
-    ScrollTrigger.refresh();
   });
 
   useEffect(() => {
     // Other sections were measured before this one pinned; re-measure.
-    const id = window.setTimeout(() => ensureGsap().ScrollTrigger.refresh(), 100);
+    const id = window.setTimeout(() => {
+      const { ScrollTrigger } = ensureGsap();
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    }, 100);
     return () => window.clearTimeout(id);
   }, []);
 
