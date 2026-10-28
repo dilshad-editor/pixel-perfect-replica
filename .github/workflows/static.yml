@@ -1,12 +1,12 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy to Branch
 
 on:
   push:
     branches:
-      - main
+      - main # Change to master if your default branch is called master
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -16,9 +16,6 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -37,11 +34,9 @@ jobs:
           npm run build
           cp dist/index.html dist/404.html
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy Static Files to gh-pages Branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: ./dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          folder: dist # The folder Vite generated containing your static HTML/CSS
+          branch: gh-pages # The target branch where static code will be pushed
+          clean: true # Automatically remove old files from the branch
