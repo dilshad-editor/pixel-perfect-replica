@@ -147,6 +147,7 @@ function RootComponent() {
         <Navbar />
         <motion.main
           id="main"
+          className="overflow-x-clip"
           key={pathname}
           initial={animateIn ? { opacity: 0 } : false}
           animate={{ opacity: 1 }}
