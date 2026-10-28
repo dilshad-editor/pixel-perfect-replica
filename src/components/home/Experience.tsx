@@ -19,7 +19,7 @@ export function Experience() {
       },
     );
     gsap.utils.toArray<HTMLElement>("[data-entry]").forEach((el) => {
-      gsap.from(el, { x: 40, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 80%", once: true } });
+      gsap.from(el, { y: 40, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 80%", once: true } });
     });
   });
 
