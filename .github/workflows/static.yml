@@ -3,7 +3,7 @@ name: Build and Deploy to Branch
 on:
   push:
     branches:
-      - main # Change to master if your default branch is called master
+      - main
 
 permissions:
   contents: write
@@ -30,13 +30,14 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build Application
-        run: |
-          npm run build
-          cp .output/public/index.html .output/public/404.html
+        run: npm run build
+
+      - name: Create 404 Fallback File
+        run: cp .output/public/index.html .output/public/404.html
 
       - name: Deploy Static Files to gh-pages Branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .output/public # Targets the correct Nitro public distribution directory
+          folder: .output/public
           branch: gh-pages
           clean: true
