@@ -127,7 +127,7 @@ export function Hero() {
           </div>
           <div
             data-depth="24"
-            className="absolute right-[-6vw] top-1/2 -translate-y-1/2 select-none font-display text-[42vw] font-extrabold leading-none tracking-tighter text-outline opacity-30 md:text-[30vw]"
+            className="absolute right-[-6vw] top-1/2 -translate-y-1/2 select-none font-display text-[42vw] font-extrabold leading-none tracking-tighter text-outline opacity-20 md:text-[30vw]"
           >
             24
           </div>
@@ -231,7 +231,7 @@ export function Hero() {
         type="button"
         data-hero-fade
         onClick={() => scrollTo("#about")}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
+        className="absolute bottom-10 right-12 hidden flex-col items-center gap-3 md:flex"
         aria-label="Scroll to About section"
       >
         <span className="eyebrow">Scroll</span>

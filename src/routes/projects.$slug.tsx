@@ -101,7 +101,7 @@ function ProjectPage() {
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden /> All projects
         </Link>
 
-        <div className="mt-12 flex flex-wrap items-end justify-between gap-8">
+        <div className="relative mt-12">
           <div>
             <p data-p-fade className="eyebrow flex items-center gap-3">
               <span className="text-primary">Project {project.number}</span>
@@ -113,7 +113,7 @@ function ProjectPage() {
               immediate
               delay={0.1}
               text={project.title}
-              className="display-xl mt-6 uppercase"
+              className="display-title mt-6 uppercase"
             />
             {project.subtitle && (
               <p data-p-fade className="mt-4 font-display text-2xl font-bold uppercase text-muted-foreground sm:text-4xl">
@@ -124,7 +124,7 @@ function ProjectPage() {
           <span
             aria-hidden
             data-p-fade
-            className="font-display text-[8rem] font-extrabold leading-none tracking-tighter text-outline sm:text-[12rem]"
+            className="pointer-events-none absolute -top-10 right-0 hidden font-display text-[14rem] font-extrabold leading-none tracking-tighter text-outline opacity-60 lg:block"
           >
             {project.number}
           </span>

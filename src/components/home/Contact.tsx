@@ -46,7 +46,7 @@ export function Contact({ compact = false }: { compact?: boolean }) {
           as="h2"
           text="Let's create something worth watching."
           accent={["watching"]}
-          className="display-xl max-w-[14ch] uppercase"
+          className="display-title max-w-[16ch] uppercase"
         />
 
         <div className="mt-14 grid gap-12 md:grid-cols-12 md:items-end">

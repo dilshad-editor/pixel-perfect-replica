@@ -35,7 +35,7 @@ function Header({ split = true }: { split?: boolean }) {
       {split ? (
         <SplitReveal id="beyond-title" as="h2" text="Beyond basic editing." accent={["editing"]} className="display-lg uppercase" />
       ) : (
-        <h2 id="beyond-title" data-beyond-title className="display-lg uppercase">
+        <h2 id="beyond-title" data-beyond-title className="display-md uppercase">
           Beyond basic <span className="text-primary">editing.</span>
         </h2>
       )}
@@ -130,10 +130,10 @@ function PinnedDisciplines() {
                       : "translate-y-12 opacity-0",
                 )}
               >
-                <span className="font-display text-[11rem] font-extrabold leading-none tracking-tighter text-outline xl:text-[14rem]">
+                <span className="font-display text-[10rem] font-extrabold leading-none tracking-tighter text-outline xl:text-[12rem]">
                   {d.number}
                 </span>
-                <h3 className="mt-2 font-display text-5xl font-extrabold uppercase leading-none tracking-tight xl:text-6xl">
+                <h3 className="mt-2 font-display text-[clamp(2rem,3.4vw,3.4rem)] font-extrabold uppercase leading-none tracking-tight">
                   {d.title}
                 </h3>
                 <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">{d.text}</p>
