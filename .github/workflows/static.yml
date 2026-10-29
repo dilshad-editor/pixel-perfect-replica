@@ -39,17 +39,21 @@ jobs:
       - name: 🛠 Build Lovable website
         run: npm run build -- --base=/pixel-perfect-replica/
 
-      - name: 🔍 Verify build output
+      - name: 🔍 Verify built website
         run: |
-          ls -la dist
-          test -f dist/index.html
+          echo "Generated files:"
+          ls -la .output/public
+          test -f .output/public/index.html || {
+            echo "ERROR: index.html missing. Static prerendering must be configured."
+            exit 1
+          }
 
       - name: 📄 Generate 404 fallback
-        run: cp dist/index.html dist/404.html
+        run: cp .output/public/index.html .output/public/404.html
 
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist
+          folder: .output/public
           clean: true
