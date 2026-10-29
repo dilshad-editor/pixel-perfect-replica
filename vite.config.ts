@@ -13,6 +13,6 @@ export default defineConfig({
   },
 
   vite: {
-    base: "/pixel-perfect-replica/",
+    base: "/portfolio/",
   },
 });
