@@ -14,6 +14,8 @@ describe("portfolio projects", () => {
       "handcrafted-by-ss-03",
       "trapped-short-film",
       "freelance-work-reel",
+      "freelance-work-reel-02",
+      "freelance-work-reel-03",
     ]);
   });
 
