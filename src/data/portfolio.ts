@@ -4,6 +4,7 @@
  * Only verified information belongs here. Leave a field empty/null when the asset is not available yet;
  * the site then shows a clearly labelled placeholder instead of inventing content.
  */
+import photoAsset from "@/assets/dilshad-khan.jpg.asset.json";
 
 export type VideoSource =
   | { type: "drive"; id: string }
@@ -37,7 +38,7 @@ export const profile = {
   bio: "I'm Dilshad Khan, a professional video editor specializing in short-form social media videos, Instagram reels, engaging talking-head edits, and promotional content. My creative approach focuses on storytelling, smooth transitions, dynamic captions, and clean, engaging visuals that hold audience attention. I believe every edit should feel purposeful and bring the story to life.",
   experienceHighlight: "6 Months of Paid Internship Experience",
   /** Professional photograph URL. null = show the labelled placeholder. */
-  photo: null as string | null,
+  photo: photoAsset.url as string | null,
   specializations: [
     "Short-form social media editing",
     "Instagram reels",
