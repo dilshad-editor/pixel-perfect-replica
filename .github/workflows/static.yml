@@ -28,13 +28,23 @@ jobs:
           node-version: 22
           package-manager-cache: false
 
+      - name: 🔄 Update npm
+        run: |
+          npm install --global npm@11.19.1
+          npm --version
+
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: 🛠 Build Lovable website
         run: npm run build -- --base=/pixel-perfect-replica/
 
-      - name: 📄 Generate 404.html fallback
+      - name: 🔍 Verify build output
+        run: |
+          ls -la dist
+          test -f dist/index.html
+
+      - name: 📄 Generate 404 fallback
         run: cp dist/index.html dist/404.html
 
       - name: 🚀 Deploy to GitHub Pages
