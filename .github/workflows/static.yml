@@ -37,7 +37,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: 🛠 Build Lovable website
-        run: npm run build -- --base=/pixel-perfect-replica/
+        run: npm run build -- --base=/portfolio/
 
       - name: 🔍 Verify static website
         run: |
