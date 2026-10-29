@@ -154,7 +154,7 @@ export const projects: Project[] = [
   {
     slug: "freelance-work-reel-02",
     number: "06",
-    title: "Solar Trust",
+    title: "Kapoor Collection",
     subtitle: "Instagram Reel",
     category: "Instagram Reel",
     description: "A vertical Instagram reel edited as freelance work.",
