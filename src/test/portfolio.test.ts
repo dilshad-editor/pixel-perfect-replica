@@ -29,7 +29,7 @@ describe("portfolio projects", () => {
   });
 
   it("wraps next-project navigation from the last project back to the first", () => {
-    expect(getNextProject("trapped-short-film")!.slug).toBe("handcrafted-by-ss-01");
+    expect(getNextProject("freelance-work-reel-03")!.slug).toBe("handcrafted-by-ss-01");
   });
 
   it("matches a project page route for every project", () => {
