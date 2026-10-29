@@ -139,6 +139,18 @@ export const projects: Project[] = [
     thumbnail: null,
     aspect: "16 / 9",
   },
+  {
+    slug: "freelance-work-reel",
+    number: "05",
+    title: "Freelance Work",
+    subtitle: "Instagram Reel",
+    category: "Instagram Reel",
+    description: "A vertical Instagram reel edited as freelance work.",
+    contributions: ["Video editing", "Short-form social media editing"],
+    video: { type: "drive", id: "14ZXKbj6cO0HTCMfqAoggQOd4p7WdmJ00" },
+    thumbnail: null,
+    aspect: "9 / 16",
+  },
 ];
 
 export const behindTheEdit = {
