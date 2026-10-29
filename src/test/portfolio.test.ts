@@ -14,6 +14,8 @@ describe("portfolio projects", () => {
       "handcrafted-by-ss-03",
       "trapped-short-film",
       "freelance-work-reel",
+      "freelance-work-reel-02",
+      "freelance-work-reel-03",
     ]);
   });
 
@@ -27,7 +29,7 @@ describe("portfolio projects", () => {
   });
 
   it("wraps next-project navigation from the last project back to the first", () => {
-    expect(getNextProject("trapped-short-film")!.slug).toBe("handcrafted-by-ss-01");
+    expect(getNextProject("freelance-work-reel-03")!.slug).toBe("handcrafted-by-ss-01");
   });
 
   it("matches a project page route for every project", () => {
