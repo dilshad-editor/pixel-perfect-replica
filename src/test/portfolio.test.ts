@@ -7,12 +7,13 @@ import { getEmbedUrl, getExternalUrl } from "@/lib/video";
 import { routeTree } from "@/routeTree.gen";
 
 describe("portfolio projects", () => {
-  it("has exactly the four supplied projects at the requested URLs", () => {
+  it("has exactly the supplied projects at the requested URLs", () => {
     expect(projects.map((p) => p.slug)).toEqual([
       "handcrafted-by-ss-01",
       "handcrafted-by-ss-02",
       "handcrafted-by-ss-03",
       "trapped-short-film",
+      "freelance-work-reel",
     ]);
   });
 
